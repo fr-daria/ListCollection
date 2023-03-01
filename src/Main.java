@@ -23,27 +23,44 @@ public class Main {
             int i = Integer.parseInt(input) - 1;
             switch (i) {
                 case 0:
-                    System.out.println("Что вы хотите добавить в список?");
-                    System.out.println(products);
-                    String product = scanner.nextLine();
-                        listProducts.add(product);
-                    System.out.println("Итого всписке покупок: " + listProducts.size());
+                    addProduct(products, listProducts, scanner);
                     break;
                 case 1:
-                    System.out.println("Список покупок " + listProducts.size());
+                    searchProduct(listProducts);
                     break;
                 case 2:
-                    System.out.println("Список покупок: "  + listProducts);
-                    System.out.println("Какую хотите удалить? Введите номер или название");
-                    String remove = scanner.nextLine();
-                    int y = 0;
-                    if (y == Integer.parseInt(remove)){
-                    listProducts.remove(y);
-                } else {
-                    listProducts.remove(remove);
-                }
+                    remoteProduct(listProducts, scanner);
                     break;
             }
         }
+    }
+
+    private static List<String> remoteProduct(List<String> listProducts, Scanner scanner) {
+        System.out.println("Список покупок: " + listProducts);
+        System.out.println("Какую хотите удалить? Введите номер или название");
+        String remove = scanner.nextLine();
+        int y = 0;
+        if (y == Integer.parseInt(remove)) {
+            listProducts.remove(y);
+        } else {
+            listProducts.remove(remove);
+        }
+        return listProducts;
+    }
+
+    private static List<String> searchProduct(List<String> listProducts) {
+        System.out.println("Список покупок: " + listProducts.size() + listProducts);
+        return listProducts;
+    }
+
+    private static List<String> addProduct(List<String> products, List<String> listProducts, Scanner scanner) {
+        System.out.println("Что вы хотите добавить в список?");
+        System.out.println(products);
+        String product = scanner.nextLine();
+        for (String a : listProducts) {
+            listProducts.add(product);
+        }
+        System.out.println("Итого всписке покупок: " + listProducts.size() + listProducts);
+        return listProducts;
     }
 }
