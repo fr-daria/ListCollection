@@ -18,15 +18,17 @@ public class Main {
             List<String> listProducts = new LinkedList<>();
 
             System.out.println("Выберите номер одной из операций: 1. Добавить, 2. Показать, 3. Удалить");
-            Scanner scanner = new Scanner(System.in); // 1 nomer
+            Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
             int i = Integer.parseInt(input) - 1;
             switch (i) {
                 case 0:
                     addProduct(products, listProducts, scanner);
+                    System.out.println("Итого всписке покупок: " + listProducts.size() + " " + listProducts);
                     break;
                 case 1:
                     searchProduct(listProducts);
+                    System.out.println("Список покупок: " + listProducts.size() + listProducts);
                     break;
                 case 2:
                     remoteProduct(listProducts, scanner);
@@ -49,7 +51,6 @@ public class Main {
     }
 
     private static List<String> searchProduct(List<String> listProducts) {
-        System.out.println("Список покупок: " + listProducts.size() + listProducts);
         return listProducts;
     }
 
@@ -57,10 +58,7 @@ public class Main {
         System.out.println("Что вы хотите добавить в список?");
         System.out.println(products);
         String product = scanner.nextLine();
-        for (String a : listProducts) {
-            listProducts.add(product);
-        }
-        System.out.println("Итого всписке покупок: " + listProducts.size() + listProducts);
+        products.add(product);
         return listProducts;
     }
 }
