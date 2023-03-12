@@ -37,7 +37,7 @@ public class Main {
         }
     }
 
-    private static List<String> remoteProduct(List<String> listProducts, Scanner scanner) {
+    private static void remoteProduct(List<String> listProducts, Scanner scanner) {
         System.out.println("Список покупок: " + listProducts);
         System.out.println("Какую хотите удалить? Введите номер или название");
         String remove = scanner.nextLine();
@@ -47,7 +47,6 @@ public class Main {
         } else {
             listProducts.remove(remove);
         }
-        return listProducts;
     }
 
     private static List<String> searchProduct(List<String> listProducts) {
